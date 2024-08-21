@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.dagger.hilt.android")
+    kotlin("kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -59,6 +62,30 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    //LiveData
+    implementation(libs.androidx.runtime.livedata)
+
+    //Retrofit2
+    implementation(libs.retrofit)
+    implementation(libs.retrofit2.converter.gson)
+
+    //Coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    //Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+
+    //Paging
+    implementation(libs.pagingCompose)
+
+    //Navigation
+    implementation(libs.android.navigation)
+
+    //Coil
+    implementation(libs.coil.image)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
