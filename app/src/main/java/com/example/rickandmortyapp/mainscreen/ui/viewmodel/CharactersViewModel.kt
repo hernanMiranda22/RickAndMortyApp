@@ -17,7 +17,7 @@ class CharactersViewModel @Inject constructor(
 
     val character : Flow<PagingData<CharacterModelUI>> = getAllCharactersUseCase.getAllCharacters()
 
-    private val _searchCharacter = MutableStateFlow<String>(value = "")
+    private val _searchCharacter = MutableStateFlow(value = "")
     val searchCharacter : StateFlow<String> = _searchCharacter
 
     fun onTextValueChange(text:String){

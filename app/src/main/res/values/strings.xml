@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">RickAndMortyApp</string>
 
-    <string name="label_name">Name :</string>
+    <string name="label_name">Name: </string>
+
+    <string name="label_nameEpisode">Name: </string>
+    <string name="label_airDate">Air Date: </string>
+    <string name="label_numberEpisode">Number Episode: </string>
 </resources>

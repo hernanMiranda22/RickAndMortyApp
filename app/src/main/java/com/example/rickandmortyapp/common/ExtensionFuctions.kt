@@ -1,6 +1,8 @@
 package com.example.rickandmortyapp.common
 
+import com.example.rickandmortyapp.detailscreen.data.dto.EpisodeModelDto
 import com.example.rickandmortyapp.detailscreen.ui.model.CardDetailCharacter
+import com.example.rickandmortyapp.detailscreen.ui.model.EpisodeModelUI
 import com.example.rickandmortyapp.mainscreen.data.dto.CharacterModelDto
 import com.example.rickandmortyapp.mainscreen.ui.model.CharacterModelUI
 import com.example.rickandmortyapp.mainscreen.ui.model.HomeCharacterCard
@@ -26,5 +28,13 @@ fun HomeCharacterCard.toDetail(): CardDetailCharacter {
         gender = this.gender,
         episode = this.episode
 
+    )
+}
+
+fun EpisodeModelDto.toEpisodeUI(): EpisodeModelUI {
+    return EpisodeModelUI(
+        name = this.name,
+        ariDate = this.ariDate,
+        episode = this.episode
     )
 }
