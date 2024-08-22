@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.rickandmortyapp.mainscreen.ui.model.HomeCharacterCard
 import com.example.rickandmortyapp.mainscreen.ui.screen.component.SearchCharacterComponent
 import com.example.rickandmortyapp.mainscreen.ui.viewmodel.CharactersViewModel
@@ -16,6 +17,9 @@ fun ScaffoldView(
     onValueChange: (String) -> Unit,
     onDetailClick: (HomeCharacterCard) ->Unit
 ) {
+
+    val chacaterState = viewModel.character.collectAsLazyPagingItems()
+
     Scaffold(topBar = {
         SearchCharacterComponent(
             value = text,
@@ -24,7 +28,7 @@ fun ScaffoldView(
     }
     ) {
         Box(modifier = Modifier.padding(it)){
-            MainScreen(listViewModel = viewModel, onDetailClick)
+            HomeContent(chacaterState, onDetailClick)
         }
     }
 }

@@ -22,24 +22,22 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
-import androidx.paging.compose.collectAsLazyPagingItems
 import coil.compose.AsyncImage
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.mainscreen.ui.model.CharacterModelUI
 import com.example.rickandmortyapp.mainscreen.ui.model.HomeCharacterCard
-import com.example.rickandmortyapp.mainscreen.ui.viewmodel.CharactersViewModel
 
 @Composable
 fun CharacterItem(
     modifier: Modifier,
-    listViewModel: CharactersViewModel,
+    chacaterState: LazyPagingItems<CharacterModelUI>,
     onDetailClick: (HomeCharacterCard) -> Unit
 ) {
 
-    val character = listViewModel.character.collectAsLazyPagingItems()
+   // val character = listViewModel.character.collectAsLazyPagingItems()
 
     when{
-        character.loadState.refresh is LoadState.Loading && character.itemCount == 0 -> {
+        chacaterState.loadState.refresh is LoadState.Loading && chacaterState.itemCount == 0 -> {
             Box(modifier = modifier
                 .fillMaxSize()
                 .background(Color(0xFF000000)),
@@ -48,16 +46,16 @@ fun CharacterItem(
                 CircularProgressIndicator()
             }
         }
-        character.loadState.refresh is LoadState.NotLoading && character.itemCount == 0 -> {
+        chacaterState.loadState.refresh is LoadState.NotLoading && chacaterState.itemCount == 0 -> {
             Text(text = "No hay personajes")
         }
-        character.loadState.hasError -> {
+        chacaterState.loadState.hasError -> {
             Text(text = "Error en la red")
         }
         else -> {
-            CharacterList(modifier, character, onDetailClick)
+            CharacterList(modifier, chacaterState, onDetailClick)
 
-            if (character.loadState.append is LoadState.Loading){
+            if (chacaterState.loadState.append is LoadState.Loading){
                 Box(modifier = modifier
                     .fillMaxSize()
                     .background(Color(0xFF000000)),

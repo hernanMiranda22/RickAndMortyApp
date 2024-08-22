@@ -1,17 +1,17 @@
 package com.example.rickandmortyapp.detailscreen.ui.screen.component
 
-import androidx.compose.foundation.background
+
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -21,36 +21,31 @@ import androidx.compose.ui.unit.sp
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.detailscreen.ui.model.EpisodeModelUI
 import com.example.rickandmortyapp.detailscreen.ui.model.EpisodeStateUI
-import com.example.rickandmortyapp.detailscreen.ui.viewmodel.DetailCharacterViewModel
 
-@Composable
-fun ListEpisode(detailCharacterViewModel: DetailCharacterViewModel){
-
-    val uiState by detailCharacterViewModel.listEpisodes.collectAsState()
+fun LazyListScope.ListEpisode(uiState : EpisodeStateUI){
 
     when(uiState){
         is EpisodeStateUI.Error -> {
 
         }
         EpisodeStateUI.Loading -> {
-            CircularProgressExtraInfo()
+            item {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+                    CircularProgressExtraInfo()
+                }
+            }
+
         }
         is EpisodeStateUI.Success -> {
-            EpisodeSection((uiState as EpisodeStateUI.Success).listEpisode)
+            EpisodeSection(uiState.listEpisode)
         }
     }
 }
 
-@Composable
-private fun EpisodeSection(listFilms : List<EpisodeModelUI?>){
-    LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xFF4D4D4D))
-    ) {
-        items(listFilms){
-            ItemEpisode(list = it)
-        }
+
+private fun LazyListScope.EpisodeSection(listFilms : List<EpisodeModelUI?>){
+    items(listFilms){
+        ItemEpisode(list = it)
     }
 }
 
