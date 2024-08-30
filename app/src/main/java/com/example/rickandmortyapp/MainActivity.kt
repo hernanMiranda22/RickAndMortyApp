@@ -23,15 +23,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             RickAndMortyAppTheme {
-                val valueState: String by charactersViewModel.searchCharacter.collectAsState()
 
                 val navController = rememberNavController()
 
                 NavigationHost(
                     navController = navController,
                     detailsCharacterViewModel = detailCharacterViewModel,
-                    charactersViewModel = charactersViewModel,
-                    valueState = valueState
+                    charactersViewModel = charactersViewModel
                 )
             }
         }

@@ -86,6 +86,9 @@ dependencies {
     //Coil
     implementation(libs.coil.image)
 
+    //fonts
+    implementation(libs.google.fonts)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

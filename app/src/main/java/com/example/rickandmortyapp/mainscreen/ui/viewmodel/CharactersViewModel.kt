@@ -12,15 +12,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CharactersViewModel @Inject constructor(
-    private val getAllCharactersUseCase: GetAllCharactersUseCase
+     getAllCharactersUseCase: GetAllCharactersUseCase
 ) : ViewModel() {
 
     val character : Flow<PagingData<CharacterModelUI>> = getAllCharactersUseCase.getAllCharacters()
 
-    private val _searchCharacter = MutableStateFlow(value = "")
-    val searchCharacter : StateFlow<String> = _searchCharacter
-
-    fun onTextValueChange(text:String){
-        _searchCharacter.value = text
-    }
 }
