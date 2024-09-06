@@ -2,8 +2,10 @@
     <string name="app_name">RickAndMortyApp</string>
 
     <string name="label_name">Name: </string>
-
     <string name="label_nameEpisode">Name: </string>
     <string name="label_airDate">Air Date: </string>
     <string name="label_numberEpisode">Number Episode: </string>
+    <string name="label_isAlive">Is alive?: </string>
+    <string name="label_gender">Gender: </string>
+    <string name="label_species">Specie: </string>
 </resources>

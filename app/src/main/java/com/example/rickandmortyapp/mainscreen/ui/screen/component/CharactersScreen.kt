@@ -31,7 +31,7 @@ fun HomeContent(
 
         when{
             characterState.loadState.refresh is LoadState.Loading && characterState.itemCount == 0 -> {
-                CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+                HomeSkeleton()
             }
             characterState.loadState.refresh is LoadState.NotLoading && characterState.itemCount == 0 -> {
                 Text(text = "No hay personajes")

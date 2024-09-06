@@ -4,13 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.navigation.compose.rememberNavController
 import com.example.rickandmortyapp.common.NavigationHost
 import com.example.rickandmortyapp.detailscreen.ui.viewmodel.DetailCharacterViewModel
 import com.example.rickandmortyapp.mainscreen.ui.viewmodel.CharactersViewModel
-import com.example.rickandmortyapp.ui.theme.RickAndMortyAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,16 +19,13 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            RickAndMortyAppTheme {
+            val navController = rememberNavController()
 
-                val navController = rememberNavController()
-
-                NavigationHost(
-                    navController = navController,
-                    detailsCharacterViewModel = detailCharacterViewModel,
-                    charactersViewModel = charactersViewModel
-                )
-            }
+            NavigationHost(
+                navController = navController,
+                detailsCharacterViewModel = detailCharacterViewModel,
+                charactersViewModel = charactersViewModel
+            )
         }
     }
 }

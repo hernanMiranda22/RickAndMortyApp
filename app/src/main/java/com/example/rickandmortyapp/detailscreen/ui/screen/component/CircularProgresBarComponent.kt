@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.Color
 @Composable
 fun CircularProgressExtraInfo(){
     Box(modifier = Modifier
-        .fillMaxSize()
-        .background(Color(0xFFD4D4D4))
+        .fillMaxSize(),
+        contentAlignment = Alignment.Center
     ){
-        CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+        CircularProgressIndicator()
     }
 }
