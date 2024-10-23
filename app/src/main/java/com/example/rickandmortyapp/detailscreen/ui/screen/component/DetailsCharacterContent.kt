@@ -2,6 +2,7 @@ package com.example.rickandmortyapp.detailscreen.ui.screen.component
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.example.rickandmortyapp.detailscreen.ui.model.CardDetailCharacter
@@ -17,7 +18,7 @@ fun DetailsCharacterScreenContent(
 
     when (uiState) {
         is EpisodeStateUI.Error -> {
-
+            Text(text = "Episodes not found")
         }
 
         EpisodeStateUI.Loading -> {

@@ -90,6 +90,9 @@ dependencies {
     //fonts
     implementation(libs.google.fonts)
 
+    //turbine test
+    testImplementation(libs.turbine.flow.test)
+
     testImplementation(libs.junit)
     testImplementation(libs.mock.test)
     androidTestImplementation(libs.androidx.junit)

@@ -2,6 +2,7 @@ package com.example.rickandmortyapp.detailscreen.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.rickandmortyapp.core.Resource
 import com.example.rickandmortyapp.detailscreen.domain.GetAllEpisodesByCharacterUseCase
 import com.example.rickandmortyapp.detailscreen.ui.model.EpisodeStateUI
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,8 +25,15 @@ class DetailCharacterViewModel @Inject constructor(
 
     fun getListEpisode(url: List<String>){
         viewModelScope.launch {
-            val result = getAllEpisodesUseCase.getAllEpisodeByCharacter(url)
-            _listEpisodes.update { EpisodeStateUI.Success(result) }
+            when(val result = getAllEpisodesUseCase.getAllEpisodeByCharacter(url)){
+                is Resource.Error -> _listEpisodes.update{
+                    EpisodeStateUI.Error(result.exception)
+                }
+                is Resource.Success -> _listEpisodes.update {
+                    EpisodeStateUI.Success(result.data)
+                }
+            }
+
         }
     }
 }
