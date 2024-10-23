@@ -32,6 +32,7 @@ fun HomeScreen(
 ) {
 
     val characterState = viewModel.character.collectAsLazyPagingItems()
+    viewModel.setPagingList()
 
     HomeContent(characterState, onDetailClick)
 

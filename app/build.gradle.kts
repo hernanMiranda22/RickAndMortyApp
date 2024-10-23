@@ -72,6 +72,7 @@ dependencies {
 
     //Coroutines
     implementation(libs.kotlinx.coroutines.android)
+    testImplementation(libs.kotlinx.coroutines.test)
 
     //Hilt
     implementation(libs.hilt.android)
@@ -90,6 +91,7 @@ dependencies {
     implementation(libs.google.fonts)
 
     testImplementation(libs.junit)
+    testImplementation(libs.mock.test)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
