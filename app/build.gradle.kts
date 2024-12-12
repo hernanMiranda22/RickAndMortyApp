@@ -1,9 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("com.google.dagger.hilt.android")
-    kotlin("kapt")
-    id("kotlin-parcelize")
+    alias(libs.plugins.android.dagger.hilt)
+    alias(libs.plugins.parcelize)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -76,7 +76,7 @@ dependencies {
 
     //Hilt
     implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
 
     //Paging
     implementation(libs.pagingCompose)
