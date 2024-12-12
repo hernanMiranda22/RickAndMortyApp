@@ -19,7 +19,6 @@ Esta app muestra una lista paginada de todos los personajes de la serie y, a su 
 - [Retrofit](https://square.github.io/retrofit/)
 - [Dagger Hilt](https://dagger.dev/hilt/)
 - [Paging](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
-- 
 ## Contacto
 [![Static Badge](https://img.shields.io/badge/Hern%C3%A1n%20Miranda-2B4FFF?style=for-the-badge&logo=linkedin&logoColor=FFFFFF&labelColor=000000)
 ](https://www.linkedin.com/in/hern%C3%A1n-miranda/)
