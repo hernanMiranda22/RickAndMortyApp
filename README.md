@@ -22,4 +22,4 @@ Esta app muestra una lista paginada de todos los personajes de la serie y, a su 
 - [MockK](https://mockk.io/ANDROID.html)
 ## Contacto
 [![Static Badge](https://img.shields.io/badge/Hern%C3%A1n%20Miranda-2B4FFF?style=for-the-badge&logo=linkedin&logoColor=FFFFFF&labelColor=000000)
-](https://www.linkedin.com/in/hern%C3%A1n-miranda/)
+](https://www.linkedin.com/in/hernan-miranda/)
